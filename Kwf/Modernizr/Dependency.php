@@ -84,13 +84,13 @@ class Kwf_Modernizr_Dependency extends Kwf_Assets_Dependency_Abstract
         file_put_contents('Gruntfile.js', $gruntfile);
         $cmd = "./node_modules/.bin/grunt 2>&1";
         exec($cmd, $out, $retVar);
+        unlink('Gruntfile.js');
+        if (file_exists($outputFile)) $ret = file_get_contents($outputFile);
+        unlink($outputFile);
         chdir($cwd);
         if ($retVar) {
             throw new Kwf_Exception("Grunt failed: ".implode("\n", $out));
         }
-        $ret = file_get_contents($outputFile);
-        unlink($outputFile);
-        unlink('Gruntfile.js');
         return $ret;
     }
 
