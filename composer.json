@@ -1,0 +1,31 @@
+{
+    "name": "koala-framework/kwf-modernizr",
+    "description": "Modernizr Integration for Koala Framework",
+    "homepage": "http://www.koala-framework.org/",
+    "license": "BSD-2-Clause",
+    "type": "library",
+    "require": {
+        "koala-framework/koala-framework": "dev-master",
+        "koala-framework/composer-extra-assets": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Kwf_Modernizr_": ""
+        }
+    },
+    "autoload-dev": {
+        "psr-0": {
+            "Kwf_Modernizr_": "tests"
+        }
+    },
+    "extra": {
+        "require-npm": {
+            "grunt": "0.4.*",
+            "grunt-cli": "0.1.*",
+            "grunt-modernizr": "0.5.2"
+        }
+    }
+}
