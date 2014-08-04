@@ -93,24 +93,7 @@ class Kwf_Modernizr_Dependency extends Kwf_Assets_Dependency_Abstract
         unlink('Gruntfile.js');
         return $ret;
     }
-/*
-    public function getAbsoluteFileName()
-    {
 
-
-        $path = VENDOR_PATH.'/koala-framework/library-modernizr';
-        $builds = json_decode(file_get_contents($path.'/builds.json'), true);
-        foreach ($builds as $build) {
-            $features = $build['features'];
-            sort($features);
-            if ($requiredFeatures == $features) {
-                $this->_fileNameCache = $path.'/'.$build['file'];
-                return $this->_fileNameCache;
-            }
-        }
-        throw new Kwf_Exception("Can't find generated Modernizr file with following ".count($this->_features)." features: ".implode(', ', $this->_features));
-    }
-*/
     public function getMTime()
     {
 //         return filemtime($this->getAbsoluteFileName());
