@@ -9,7 +9,9 @@ before_script:
   - echo 'server.baseUrl = ""' >> tests/config.local.ini
   - chmod a+w cache/*
   - composer self-update
-  - composer install
+
+  # see https://getcomposer.org/doc/articles/troubleshooting.md#package-not-found-on-travis-ci-org
+  - COMPOSER_ROOT_VERSION=dev-master composer install
 services:
   - memcached
 script: "./vendor/bin/phpunit"
