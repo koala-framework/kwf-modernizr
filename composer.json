@@ -21,6 +21,8 @@
             "Kwf_Modernizr_": "tests"
         }
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "extra": {
         "require-npm": {
             "grunt": "0.4.*",
