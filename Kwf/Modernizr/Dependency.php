@@ -2,12 +2,12 @@
 class Kwf_Modernizr_Dependency extends Kwf_Assets_Dependency_Abstract
 {
     private $_features = array();
-    private $_fileNameCache;
+    private $_contentsCache;
 
     public function addFeature($feature)
     {
         $this->_features[] = $feature;
-        unset($this->_fileNameCache);
+        unset($this->_contentsCache);
     }
 
     public function getFeatures()
@@ -20,9 +20,14 @@ class Kwf_Modernizr_Dependency extends Kwf_Assets_Dependency_Abstract
         return 'text/javascript';
     }
 
+    public function warmupCaches()
+    {
+        $this->getContents('en');
+    }
+
     public function getContents($language)
     {
-        if (isset($this->_fileNameCache)) return $this->_fileNameCache;
+        if (isset($this->_contentsCache)) return $this->_contentsCache;
 
         if (!$this->_features) return null;
 
@@ -91,6 +96,8 @@ class Kwf_Modernizr_Dependency extends Kwf_Assets_Dependency_Abstract
         if ($retVar) {
             throw new Kwf_Exception("Grunt failed: ".implode("\n", $out));
         }
+
+        $this->_contentsCache = $ret;
         return $ret;
     }
 
