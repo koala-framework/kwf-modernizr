@@ -31,7 +31,12 @@ class Kwf_Modernizr_Dependency extends Kwf_Assets_Dependency_Abstract
 
         if (!$this->_features) return null;
 
-        $outputFile = tempnam('/tmp', 'modernizr');
+        $outputFile = getcwd().'/temp/modernizr-'.implode('-', $this->_features);
+        if (file_exists("$outputFile.buildtime") && (time() - file_get_contents("$outputFile.buildtime") < 24*60*60)) {
+            $ret = file_get_contents($outputFile);
+            $this->_contentsCache = $ret;
+            return $ret;
+        }
 
         $extensibility = array(
             "addtest"      => false,
@@ -91,11 +96,11 @@ class Kwf_Modernizr_Dependency extends Kwf_Assets_Dependency_Abstract
         exec($cmd, $out, $retVar);
         unlink('Gruntfile.js');
         if (file_exists($outputFile)) $ret = file_get_contents($outputFile);
-        unlink($outputFile);
         chdir($cwd);
         if ($retVar) {
             throw new Kwf_Exception("Grunt failed: ".implode("\n", $out));
         }
+        file_put_contents("$outputFile.buildtime", time());
 
         $this->_contentsCache = $ret;
         return $ret;
@@ -103,8 +108,9 @@ class Kwf_Modernizr_Dependency extends Kwf_Assets_Dependency_Abstract
 
     public function getMTime()
     {
-//         return filemtime($this->getAbsoluteFileName());
-        return time();
+        $outputFile = getcwd().'/temp/modernizr-'.implode('-', $this->_features);
+        if (!file_exists("$outputFile.buildtime")) $this->getContents(null);
+        return (int)file_get_contents("$outputFile.buildtime");
     }
 
     public function __toString()
