@@ -53,6 +53,9 @@ class Kwf_Modernizr_Dependency extends Kwf_Assets_Dependency_Abstract
             if (isset($extensibility[strtolower($f)])) {
                 $extensibility[strtolower($f)] = true;
             } else {
+                //add two versions of the test
+                //requried to support core detects (eg. CssAnimations) and non-core detects (css_mediaqueries)
+
                 $tests[] = strtolower($f);
 
                 $filter = new Zend_Filter_Word_CamelCaseToUnderscore();
