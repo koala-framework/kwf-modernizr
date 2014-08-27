@@ -48,17 +48,17 @@ class Kwf_Modernizr_Dependency extends Kwf_Assets_Dependency_Abstract
             "prefixes"     => false,
             "domprefixes"  => false
         );
-
         $tests = array();
         foreach ($this->_features as $f) {
-            $f = strtolower($f);
-            if (isset($extensibility[$f])) {
-                $extensibility[$f] = true;
+            if (isset($extensibility[strtolower($f)])) {
+                $extensibility[strtolower($f)] = true;
             } else {
                 $tests[] = strtolower($f);
+
+                $filter = new Zend_Filter_Word_CamelCaseToUnderscore();
+                $tests[] = strtolower($filter->filter($f));
             }
         }
-
         $config = array(
             'modernizr' => array(
                 'dist' => array(
@@ -68,7 +68,7 @@ class Kwf_Modernizr_Dependency extends Kwf_Assets_Dependency_Abstract
                         "shiv"       => false,
                         "printshiv"  => false,
                         "load"       => false,
-                        "mq"         => false,
+                        "mq"         => true,
                         "cssclasses" => true
                     ),
                     'extensibility' => $extensibility,
