@@ -95,7 +95,7 @@ class Kwf_Modernizr_Dependency extends Kwf_Assets_Dependency_Abstract
         $cwd = getcwd();
         chdir(dirname(dirname(dirname(__FILE__))));
         file_put_contents('Gruntfile.js', $gruntfile);
-        $cmd = "node ./node_modules/.bin/grunt 2>&1";
+        $cmd = "node ./node_modules/grunt-cli/bin/grunt 2>&1";
         exec($cmd, $out, $retVar);
         unlink('Gruntfile.js');
         if (file_exists($outputFile)) $ret = file_get_contents($outputFile);
