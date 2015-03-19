@@ -4,6 +4,9 @@
     "homepage": "http://www.koala-framework.org/",
     "license": "BSD-2-Clause",
     "type": "library",
+    "require": {
+        "koala-framework/composer-extra-assets": "~1.1"
+    },
     "require-dev": {
         "koala-framework/koala-framework": "3.8.x-dev",
         "phpunit/phpunit": "3.7.*"
