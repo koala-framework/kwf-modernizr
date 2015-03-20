@@ -11,7 +11,7 @@ before_script:
   - composer self-update
 
   # see https://getcomposer.org/doc/articles/troubleshooting.md#package-not-found-on-travis-ci-org
-  - COMPOSER_ROOT_VERSION=3.8.x-dev composer install
+  - COMPOSER_ROOT_VERSION=dev-master composer install
 services:
   - memcached
 script: "./vendor/bin/phpunit"

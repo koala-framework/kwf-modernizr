@@ -8,7 +8,7 @@
         "koala-framework/composer-extra-assets": "~1.1"
     },
     "require-dev": {
-        "koala-framework/koala-framework": "3.8.x-dev",
+        "koala-framework/koala-framework": "dev-master",
         "phpunit/phpunit": "3.7.*"
     },
     "autoload": {
