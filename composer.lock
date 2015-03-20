@@ -175,12 +175,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/koala-framework/koala-framework.git",
-                "reference": "08b990510241c2b9524ebd1f01bbb8fe998e0898"
+                "reference": "0ce4e42a71976ac238eb71edcbbab72ed6872fad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/koala-framework/koala-framework/zipball/08b990510241c2b9524ebd1f01bbb8fe998e0898",
-                "reference": "08b990510241c2b9524ebd1f01bbb8fe998e0898",
+                "url": "https://api.github.com/repos/koala-framework/koala-framework/zipball/0ce4e42a71976ac238eb71edcbbab72ed6872fad",
+                "reference": "0ce4e42a71976ac238eb71edcbbab72ed6872fad",
                 "shasum": ""
             },
             "require": {
@@ -250,7 +250,7 @@
             ],
             "description": "Framework and CMS based on Zend Framework and ExtJS",
             "homepage": "http://www.koala-framework.org/",
-            "time": "2015-03-19 16:17:38"
+            "time": "2015-03-19 17:32:05"
         },
         {
             "name": "koala-framework/library-css3pie",
