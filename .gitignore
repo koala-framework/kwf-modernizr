@@ -2,4 +2,6 @@ vendor
 *.kdev4
 Gruntfile.js
 node_modules
+bower.json
+.bowerrc
 
