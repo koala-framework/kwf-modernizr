@@ -1,4 +1,6 @@
 
+# DEPRECATED, moved into koala-framework
+
 ## Koala Framework Modernizr Integration [![Build Status](https://travis-ci.org/koala-framework/kwf-modernizr.svg?branch=master)](https://travis-ci.org/koala-framework/kwf-modernizr)
 
 This builds an customized build of modernizr using grunt-modernizr that includes all required modernizr tests.
